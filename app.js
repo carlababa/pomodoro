@@ -51,8 +51,12 @@ function startBreak(duration, display) {
   }, 1000);
 }
 
+function stop(){
+  location.reload();
+}
 
 function start(){
+  clearInterval();
   countBreaks += 1;
   var userInput = document.getElementById("inputId").value || 0.05;
   if(userInput < 1){
