@@ -1,0 +1,42 @@
+<DOCTYPE!>
+<html>
+  <head>
+    <title>Pomodoro!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Pomodoro!</h1>
+      </div>
+      <div class="jumbotron">
+        <h3>Apply now the Pomodoro technique.</h3>
+        <p>Choose the size (in minutes) for your working loops.
+          Choose the size of the short break and long break. After every working loop you
+          will have a short break, after 4 short breaks the next one will be long.
+          Then the cicles continues. Keep productive and ENJOY!
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 center">
+          <p>Working loops (minutes)?</p>
+          <input type="number" id="inputId"></input>
+          <p>Short Break?</p>
+          <input type="number" id="smallRest"></input>
+          <p>Long Break?</p>
+          <input type="number" id="bigRest"></input>
+          <div class="start-btn">
+            <button onclick="start()" id="start">Start</button>
+          </div>
+        </div>
+        <div class="col-md-6 center">
+          <div class="timer">
+            <span id="counter">00:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
