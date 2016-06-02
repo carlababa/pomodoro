@@ -6,12 +6,54 @@
 .center {
   text-align: center;
   vertical-align: middle;
+  padding: 0px 100px;
 }
 
 .button {
-  padding-top: 12px;
+  padding-top: 24px;
 }
 
 body {
   background-color: #C98A75;
+}
+
+.cog {
+  text-align: right;
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.fa-fw {
+  width: 0.89em;
+}
+
+.pLabel {
+  padding-top: 12px;
+}
+
+.brand {
+  height: 40px;
+  padding-bottom: 10px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0px;
+  height: 55px;
+}
+
+#footer h3 {
+  font-size: 14px;
+}
+
+.icon {
+  color: #eee;
+}
+
+.icon:hover, .icon:focus{
+  color: #d9534f;
+}
+
+.icon-social {
+  font-size: 18px;
 }

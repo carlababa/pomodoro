@@ -4,33 +4,58 @@
     <title>Pomodoro!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="app.js"></script>
+    <script src="animation.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Pomodoro!</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <h1><img class="brand" src="images/Tomato10.png"/> Pomodoro!</h1>
+          </div>
+          <div class="col-md-6 cog">
+            <i class="fa fa-cog fa-3x" aria-hidden="true" onmouseover="addSpinClass(this)" onmouseout="removeSpinClass(this)" onclick="return showHideForm('hiddenForm');"></i>
+          </div>
+        </div>
       </div>
       <div class="jumbotron">
         <h3>Apply now the Pomodoro technique.</h3>
         <p>Choose the size (in minutes) for your working loops.
           Choose the size of the short break and long break. After every working loop you
           will have a short break, after 4 short breaks the next one will be long.
-          Then the cicles continues. Keep productive and ENJOY!
+          Then the cicles continues. Or use the default values just pressing start. Keep productive and ENJOY!
         </p>
       </div>
       <div class="row">
         <div class="col-md-6 center">
-          <p>Working loops (minutes)?</p>
-          <input type="number" id="inputId"></input>
-          <p>Short Break?</p>
-          <input type="number" id="smallRest"></input>
-          <p>Long Break?</p>
-          <input type="number" id="bigRest"></input>
+          <form id="hiddenForm" style="display:none">
+            <div class="row">
+              <div class="form-group">
+                <div class="col-xs-12 pLabel">
+                  <label>Working loops (minutes)?</label>
+                  <input type="number" class="form-control" id="inputId"></input>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12 pLabel">
+                  <label>Short Break?</label>
+                  <input type="number" class="form-control" id="smallRest"></input>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12 pLabel">
+                  <label>Long Break?</label>
+                  <input type="number" class="form-control" id="bigRest"></input>
+                </div>
+              </div>
+            </div>
+          </form>
           <div class="button">
-            <button onclick="start()" id="start">Start</button>
-            <button onclick="stop()" id="stop">Stop</button>
+            <button class="btn btn-success btn-lg" onclick="start()" id="start">Start</button>
+            <button class="btn btn-danger btn-lg" onclick="stop()" id="stop">Stop</button>
           </div>
         </div>
         <div class="col-md-6 center">
@@ -40,5 +65,25 @@
         </div>
       </div>
     </div>
+    <footer class="text-center" id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Copyright &copy; Carla Babadopulos</h3>
+            <ul class="list-inline">
+              <li onmouseover="hoverContact(this)" onmouseout="unhoverContact(this)">
+                <a href="mailto:cacababa@gmail.com" class="icon" target="_blank" title="E-mail"><i class="fa fa-fw fa-envelope icon-social"></i></a>
+              </li>
+              <li onmouseover="hoverContact(this)" onmouseout="unhoverContact(this)">
+                <a href="http://linkedin.com/in/carlababa" class="icon" target="_blank" title="Linkedin"><i class="fa fa-fw fa-linkedin icon-social"></i></a>
+              </li>
+              <li onmouseover="hoverContact(this)" onmouseout="unhoverContact(this)">
+                <a href="http://github.com/carlababa" class="icon" target="_blank" title="Github"><i class="fa fa-fw fa-github icon-social"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
