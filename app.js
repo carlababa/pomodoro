@@ -1,8 +1,11 @@
+var audio = new Audio("beep49.mp3");
+var timerOn = 0;
 var countBreaks = 0;
+var interval;
 function startTimer(duration, smallBreak, bigBreak, display) {
   var timer = duration, minutes, seconds;
-  var cicles = 4 * duration;
-  var interval = setInterval(function(){
+  var cicles = (2 * duration) + 2;
+  interval = setInterval(function(){
     minutes = parseInt(timer / 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = parseInt(timer % 60, 10);
@@ -19,13 +22,15 @@ function startTimer(duration, smallBreak, bigBreak, display) {
       }
     }
 
-    if(cicles < -1) {
-      if(countBreaks >= 4) {
+    if(cicles <= 0) {
+      if(countBreaks > 4) {
         clearInterval(interval);
         countBreaks = 0;
+        audio.play();
         startBreak(bigBreak, display);
       } else {
         clearInterval(interval);
+        audio.play();
         startBreak(smallBreak, display);
       }
     }
@@ -35,7 +40,7 @@ function startTimer(duration, smallBreak, bigBreak, display) {
 
 function startBreak(duration, display) {
   var timer = duration, minutes, seconds;
-  var interval = setInterval(function(){
+  interval = setInterval(function(){
     minutes = parseInt(timer / 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = parseInt(timer % 60, 10);
@@ -51,12 +56,8 @@ function startBreak(duration, display) {
   }, 1000);
 }
 
-function stop(){
-  location.reload();
-}
-
 function workingLoop(){
-  var userInput = document.getElementById("inputId").value || 25;
+  var userInput = document.getElementById("inputId").value || 0.05;
   if(userInput < 1){
     userInput *= 100;
   } else {
@@ -66,7 +67,7 @@ function workingLoop(){
 }
 
 function smallBreak() {
-  var smallRest = document.getElementById("smallRest").value || 5;
+  var smallRest = document.getElementById("smallRest").value || 0.06;
   if(smallRest < 1){
     smallRest *= 100;
   } else {
@@ -76,7 +77,7 @@ function smallBreak() {
 }
 
 function bigBreak() {
-  var bigRest = document.getElementById("bigRest").value || 15;
+  var bigRest = document.getElementById("bigRest").value || 0.07;
   if(bigRest < 1){
     bigRest *= 100;
   } else {
@@ -85,8 +86,21 @@ function bigBreak() {
   return bigRest;
 }
 
+function pause(){
+  clearTimeout(interval);
+  timerOn = 0;
+}
+
+function stop(){
+  location.reload();
+}
+
 function start(){
+  timerOn = 0;
   countBreaks += 1;
   var display = document.querySelector("#counter");
-  startTimer(workingLoop(), smallBreak(), bigBreak(), display);
+  if (!timerOn){
+    timerOn = 1;
+    startTimer(workingLoop(), smallBreak(), bigBreak(), display);
+  }
 }
