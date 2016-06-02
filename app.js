@@ -58,21 +58,21 @@ function stop(){
 function start(){
   clearInterval();
   countBreaks += 1;
-  var userInput = document.getElementById("inputId").value || 0.05;
+  var userInput = document.getElementById("inputId").value || 25;
   if(userInput < 1){
     userInput *= 100;
   } else {
     userInput *= 60;
   }
 
-  var smallRest = document.getElementById("smallRest").value || 0.1;
+  var smallRest = document.getElementById("smallRest").value || 5;
   if(smallRest < 1){
     smallRest *= 100;
   } else {
     smallRest *= 60;
   }
 
-  var bigRest = document.getElementById("bigRest").value || 0.15;
+  var bigRest = document.getElementById("bigRest").value || 15;
   if(bigRest < 1){
     bigRest *= 100;
   } else {
