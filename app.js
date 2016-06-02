@@ -1,7 +1,7 @@
 var countBreaks = 0;
 function startTimer(duration, smallBreak, bigBreak, display) {
   var timer = duration, minutes, seconds;
-  var cicles = 1 * duration;
+  var cicles = 4 * duration;
   var interval = setInterval(function(){
     minutes = parseInt(timer / 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -20,7 +20,7 @@ function startTimer(duration, smallBreak, bigBreak, display) {
     }
 
     if(cicles < -1) {
-      if(countBreaks >= 3) {
+      if(countBreaks >= 4) {
         clearInterval(interval);
         countBreaks = 0;
         startBreak(bigBreak, display);
@@ -55,30 +55,38 @@ function stop(){
   location.reload();
 }
 
-function start(){
-  clearInterval();
-  countBreaks += 1;
+function workingLoop(){
   var userInput = document.getElementById("inputId").value || 25;
   if(userInput < 1){
     userInput *= 100;
   } else {
     userInput *= 60;
   }
+  return userInput;
+}
 
+function smallBreak() {
   var smallRest = document.getElementById("smallRest").value || 5;
   if(smallRest < 1){
     smallRest *= 100;
   } else {
     smallRest *= 60;
   }
+  return smallRest;
+}
 
+function bigBreak() {
   var bigRest = document.getElementById("bigRest").value || 15;
   if(bigRest < 1){
     bigRest *= 100;
   } else {
     bigRest *= 60;
   }
+  return bigRest;
+}
 
+function start(){
+  countBreaks += 1;
   var display = document.querySelector("#counter");
-  startTimer(userInput, smallRest, bigRest, display);
+  startTimer(workingLoop(), smallBreak(), bigBreak(), display);
 }
