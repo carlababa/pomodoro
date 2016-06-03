@@ -4,7 +4,7 @@ var countBreaks = 0;
 var interval;
 function startTimer(duration, smallBreak, bigBreak, display) {
   var timer = duration, minutes, seconds;
-  var cicles = (2 * duration) + 2;
+  var cicles = (4 * duration) + 4;
   interval = setInterval(function(){
     minutes = parseInt(timer / 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -57,7 +57,7 @@ function startBreak(duration, display) {
 }
 
 function workingLoop(){
-  var userInput = document.getElementById("inputId").value || 0.05;
+  var userInput = document.getElementById("inputId").value || 25;
   if(userInput < 1){
     userInput *= 100;
   } else {
@@ -67,7 +67,7 @@ function workingLoop(){
 }
 
 function smallBreak() {
-  var smallRest = document.getElementById("smallRest").value || 0.06;
+  var smallRest = document.getElementById("smallRest").value || 5;
   if(smallRest < 1){
     smallRest *= 100;
   } else {
@@ -77,7 +77,7 @@ function smallBreak() {
 }
 
 function bigBreak() {
-  var bigRest = document.getElementById("bigRest").value || 0.07;
+  var bigRest = document.getElementById("bigRest").value || 15;
   if(bigRest < 1){
     bigRest *= 100;
   } else {
