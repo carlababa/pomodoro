@@ -4,7 +4,7 @@ var countBreaks = 0;
 var interval;
 function startTimer(duration, smallBreak, bigBreak, display) {
   var timer = duration, minutes, seconds;
-  var cicles = (4 * duration) + 4;
+  var cicles = duration + 1;
   interval = setInterval(function(){
     minutes = parseInt(timer / 60, 10);
     minutes = minutes < 10 ? "0" + minutes : minutes;
