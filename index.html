@@ -54,10 +54,10 @@
             </div>
           </form>
           <div class="button">
-            <button class="btn btn-success btn-lg" onclick="start()" id="start">Start</button>
-            <button class="btn btn-danger btn-lg" onclick="stop()" id="stop">Stop</button>
-            <button class="btn btn-danger btn-lg" onclick="pause()" id="Pause">Pause</button>
-            <button class="btn btn-danger btn-lg" onclick="resume()" id="Resume">Resume</button>
+            <button class="btn btn-success btn-lg show" onclick="start(), hideShow('start', 'stop')" id="start">Start</button>
+            <button class="btn btn-danger btn-lg hide" onclick="stop(), hideShow('stop', 'start')" id="stop">Stop</button>
+            <button class="btn btn-danger btn-lg show" onclick="pause(), hideShow('pause', 'resume')" id="pause">Pause</button>
+            <button class="btn btn-success btn-lg hide" onclick="resume(), hideShow('resume', 'pause')" id="resume">Resume</button>
           </div>
         </div>
         <div class="col-md-6 center">
