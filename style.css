@@ -58,3 +58,11 @@ body {
 .icon-social {
   font-size: 18px;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: inline !important;
+}
